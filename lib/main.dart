@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:whatsapp_ui/chatscreen.dart';
+import 'package:whatsapp_ui/camera.dart';
+import 'package:whatsapp_ui/btmnavbar.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: {'/chat': (context) => Chatscreen()},
+      routes: {'/btmnavbar': (context) => Btmnavbar(index: 3)},
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -44,7 +45,7 @@ class MyHomePage extends StatelessWidget {
             GestureDetector(
               child: Text('Done', style: TextStyle(color: Colors.grey)),
               onTap: () {
-                Navigator.pushNamed(context, '/chat');
+                Navigator.pushNamed(context, '/btmnavbar');
               },
             ),
           ],

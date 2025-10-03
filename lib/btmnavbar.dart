@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:whatsapp_ui/calls.dart';
 import 'package:whatsapp_ui/camera.dart';
@@ -7,7 +8,8 @@ import 'package:whatsapp_ui/status.dart';
 
 class Btmnavbar extends StatefulWidget {
   final int index;
-  const Btmnavbar({super.key, required this.index});
+  final List<CameraDescription> camerass;
+  const Btmnavbar({super.key, required this.index, required this.camerass});
 
   @override
   State<Btmnavbar> createState() => _ChatscreenState();
@@ -22,14 +24,6 @@ class _ChatscreenState extends State<Btmnavbar> {
     selectedindex = widget.index;
   }
 
-  final List<Widget> _pages = [
-    Status(),
-    Calls(),
-    Camera(),
-    ChatScreen(),
-    Setting(),
-  ];
-
   void _onItemTapped(int index) {
     setState(() {
       selectedindex = index;
@@ -38,6 +32,13 @@ class _ChatscreenState extends State<Btmnavbar> {
 
   @override
   Widget build(BuildContext context) {
+    final List<Widget> _pages = [
+      Status(),
+      Calls(),
+      CameraApp(cameras: widget.camerass),
+      ChatScreen(),
+      Setting(),
+    ];
     return Scaffold(
       body: IndexedStack(index: selectedindex, children: _pages),
       bottomNavigationBar: SafeArea(

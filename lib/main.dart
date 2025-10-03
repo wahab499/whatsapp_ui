@@ -1,26 +1,34 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:whatsapp_ui/camera.dart';
 import 'package:whatsapp_ui/btmnavbar.dart';
 
-void main() {
-  runApp(const MyApp());
+late List<CameraDescription> _cameras;
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  _cameras = await availableCameras();
+
+  runApp(MyApp(cameras: _cameras));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  final List<CameraDescription> cameras;
+  const MyApp({super.key, required this.cameras});
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes: {'/btmnavbar': (context) => Btmnavbar(index: 3)},
+      routes: {
+        '/btmnavbar': (context) => Btmnavbar(index: 3, camerass: _cameras),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(),
+      home: MyHomePage(),
     );
   }
 }

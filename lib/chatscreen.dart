@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:whatsapp_ui/message.dart';
 import 'package:whatsapp_ui/models/chatsdate.dart';
 
 class ChatScreen extends StatefulWidget {
@@ -129,108 +130,116 @@ class Chatcard extends StatelessWidget {
         color: Colors.white54,
         borderRadius: BorderRadius.circular(10),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          CircleAvatar(radius: 30, backgroundImage: image.image),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                name,
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-              ),
-              SizedBox(height: 10),
-              Text(message, style: TextStyle(fontSize: 16)),
-            ],
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [Text(date)],
-          ),
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => MessageScreen()),
+          );
+        },
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            CircleAvatar(radius: 30, backgroundImage: image.image),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  name,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                ),
+                SizedBox(height: 10),
+                Text(message, style: TextStyle(fontSize: 16)),
+              ],
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [Text(date)],
+            ),
 
-          IconButton(
-            onPressed: () {
-              showMaterialModalBottomSheet(
-                context: context,
-                builder:
-                    (context) => SizedBox(
-                      height: 300,
-                      child: Column(
-                        children: [
-                          // SizedBox(height: 40),
-                          Container(
-                            height: 50,
-                            width: 400,
+            IconButton(
+              onPressed: () {
+                showMaterialModalBottomSheet(
+                  context: context,
+                  builder:
+                      (context) => SizedBox(
+                        height: 300,
+                        child: Column(
+                          children: [
+                            // SizedBox(height: 40),
+                            Container(
+                              height: 50,
+                              width: 400,
 
-                            decoration: BoxDecoration(
-                              color: Colors.white12,
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Center(
-                              child: Text(
-                                'Delete Chat',
-                                style: TextStyle(fontSize: 20),
+                              decoration: BoxDecoration(
+                                color: Colors.white12,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Delete Chat',
+                                  style: TextStyle(fontSize: 20),
+                                ),
                               ),
                             ),
-                          ),
-                          Divider(
-                            thickness: 0.5,
-                            color: Colors.black,
-                            indent: 40,
-                            endIndent: 40,
-                          ),
-                          Container(
-                            height: 50,
-                            width: 400,
-
-                            decoration: BoxDecoration(
-                              color: Colors.white12,
-                              borderRadius: BorderRadius.circular(10),
+                            Divider(
+                              thickness: 0.5,
+                              color: Colors.black,
+                              indent: 40,
+                              endIndent: 40,
                             ),
-                            child: Center(
-                              child: Text(
-                                'Edit Chat',
-                                style: TextStyle(fontSize: 20),
+                            Container(
+                              height: 50,
+                              width: 400,
+
+                              decoration: BoxDecoration(
+                                color: Colors.white12,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Edit Chat',
+                                  style: TextStyle(fontSize: 20),
+                                ),
                               ),
                             ),
-                          ),
-                          Divider(
-                            thickness: 0.5,
-                            color: Colors.black,
-                            indent: 40,
-                            endIndent: 40,
-                          ),
-                          Container(
-                            height: 50,
-                            width: 400,
-
-                            decoration: BoxDecoration(
-                              color: Colors.white12,
-                              borderRadius: BorderRadius.circular(10),
+                            Divider(
+                              thickness: 0.5,
+                              color: Colors.black,
+                              indent: 40,
+                              endIndent: 40,
                             ),
-                            child: Center(
-                              child: Text(
-                                'Contact info',
-                                style: TextStyle(fontSize: 20),
+                            Container(
+                              height: 50,
+                              width: 400,
+
+                              decoration: BoxDecoration(
+                                color: Colors.white12,
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Contact info',
+                                  style: TextStyle(fontSize: 20),
+                                ),
                               ),
                             ),
-                          ),
-                          Divider(
-                            thickness: 0.5,
-                            color: Colors.black,
-                            indent: 40,
-                            endIndent: 40,
-                          ),
-                        ],
+                            Divider(
+                              thickness: 0.5,
+                              color: Colors.black,
+                              indent: 40,
+                              endIndent: 40,
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-              );
-            },
-            icon: Icon(Icons.arrow_right),
-          ),
-        ],
+                );
+              },
+              icon: Icon(Icons.arrow_right),
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -4,6 +4,8 @@ import 'package:flutter/services.dart';
 import 'package:whatsapp_ui/btmnavbar.dart';
 
 late List<CameraDescription> _cameras;
+final RouteObserver<ModalRoute> routeObserver = RouteObserver<ModalRoute>();
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      navigatorObservers: [routeObserver],
       routes: {
         '/btmnavbar': (context) => Btmnavbar(index: 3, camerass: _cameras),
       },

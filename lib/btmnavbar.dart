@@ -35,7 +35,8 @@ class _ChatscreenState extends State<Btmnavbar> {
     final List<Widget> _pages = [
       Status(),
       Calls(),
-      CameraApp(cameras: widget.camerass),
+      CameraApp(),
+      //CameraApp(cameras: widget.camerass),
       ChatScreen(),
       Setting(),
     ];

@@ -93,7 +93,7 @@ class _ChatScreenState extends State<ChatScreen> {
                       name: chat.name,
                       message: chat.message,
                       date: chat.data,
-                      image: chat.image,
+                      circleimage: chat.image,
                     ),
                   );
                 },
@@ -110,13 +110,13 @@ class Chatcard extends StatelessWidget {
   final String name;
   final String message;
   final String date;
-  final Image image;
+  final Image circleimage;
   const Chatcard({
     super.key,
     required this.name,
     required this.message,
     required this.date,
-    required this.image,
+    required this.circleimage,
   });
 
   @override
@@ -134,13 +134,17 @@ class Chatcard extends StatelessWidget {
         onTap: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => MessageScreen()),
+            MaterialPageRoute(
+              builder:
+                  (context) =>
+                      MessageScreen(reciimage: circleimage, reciname: name),
+            ),
           );
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            CircleAvatar(radius: 30, backgroundImage: image.image),
+            CircleAvatar(radius: 30, backgroundImage: circleimage.image),
             Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

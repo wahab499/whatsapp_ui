@@ -6,7 +6,15 @@ class Status extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Status')),
+      appBar: AppBar(
+        automaticallyImplyLeading: false,
+        title: Center(
+          child: Text(
+            'Status',
+            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 24),
+          ),
+        ),
+      ),
       body: Column(
         children: [
           Padding(

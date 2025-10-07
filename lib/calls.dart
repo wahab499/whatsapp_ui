@@ -7,45 +7,107 @@ class Calls extends StatefulWidget {
   State<Calls> createState() => _CallsState();
 }
 
+List<Callers> callersdata = [
+  Callers(
+    image: Image(image: AssetImage('assets/images/Oval.png')),
+    name: 'Asad',
+    time: "40 mnt ago",
+  ),
+  Callers(
+    image: Image(image: AssetImage('assets/images/Oval.png')),
+    name: 'Abdul Wahab',
+    time: "4 mnt ago",
+  ),
+  Callers(
+    image: Image(image: AssetImage('assets/images/Oval.png')),
+    name: 'Usama',
+    time: "20 mnt ago",
+  ),
+  Callers(
+    image: Image(image: AssetImage('assets/images/Oval.png')),
+    name: 'Waheed',
+    time: "40 mnt ago",
+  ),
+  Callers(
+    image: Image(image: AssetImage('assets/images/Oval.png')),
+    name: 'Asad',
+    time: "5 mnt ago",
+  ),
+];
+
 class _CallsState extends State<Calls> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(bottom: 6, right: 10, left: 10, top: 40),
-        child: Column(children: [Toprow(), SizedBox(height: 20), Callrecord()]),
+        child: Column(
+          children: [
+            Toprow(),
+            SizedBox(height: 20),
+            Expanded(child: callrecord()),
+          ],
+        ),
       ),
     );
   }
 }
 
-Widget Callrecord() {
-  return SizedBox(
-    child: Row(
-      children: [
-        CircleAvatar(
-          radius: 28,
-          backgroundImage: AssetImage("assets/images/Oval.png"),
-          //widget.reciimage
-        ),
-        const SizedBox(width: 10),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+class Callers {
+  final String name;
+  final String time;
+  final Image image;
+  Callers({required this.image, required this.name, required this.time});
+}
+
+Widget callrecord() {
+  return ListView.builder(
+    itemCount: callersdata.length,
+    itemBuilder: (context, index) {
+      return SizedBox(
+        height: 80,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
-              'Abdul Wahab',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+            Expanded(
+              child: Row(
+                children: [
+                  CircleAvatar(
+                    radius: 28,
+                    backgroundImage: callersdata[index].image.image,
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          callersdata[index].name,
+                          style: const TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w600,
+                          ),
+                        ),
+                        const SizedBox(height: 2),
+                        Text(
+                          callersdata[index].time,
+                          style: const TextStyle(
+                            fontSize: 14,
+                            color: Colors.black54,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 2),
-            Text(
-              "35 minutes ago",
-              style: TextStyle(fontSize: 14, color: Colors.black54),
-            ),
+            const Icon(Icons.call, size: 28, color: Colors.green),
           ],
         ),
-        Icon(Icons.call, size: 28, color: Colors.green),
-      ],
-    ),
+      );
+    },
   );
 }
 

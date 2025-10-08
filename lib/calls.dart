@@ -14,22 +14,22 @@ List<Callers> callersdata = [
     time: "40 mnt ago",
   ),
   Callers(
-    image: Image(image: AssetImage('assets/images/Oval.png')),
+    image: Image(image: AssetImage('assets/images/Oval1.png')),
     name: 'Abdul Wahab',
     time: "4 mnt ago",
   ),
   Callers(
-    image: Image(image: AssetImage('assets/images/Oval.png')),
+    image: Image(image: AssetImage('assets/images/Oval2.png')),
     name: 'Usama',
     time: "20 mnt ago",
   ),
   Callers(
-    image: Image(image: AssetImage('assets/images/Oval.png')),
+    image: Image(image: AssetImage('assets/images/Oval3.png')),
     name: 'Waheed',
     time: "40 mnt ago",
   ),
   Callers(
-    image: Image(image: AssetImage('assets/images/Oval.png')),
+    image: Image(image: AssetImage('assets/images/Oval4.png')),
     name: 'Asad',
     time: "5 mnt ago",
   ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:whatsapp_ui/contactinfo.dart';
 
 class MessageScreen extends StatefulWidget {
@@ -156,7 +157,17 @@ class _MessageScreenState extends State<MessageScreen> {
                       color: Colors.blue,
                     ),
                     child: IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        showMaterialModalBottomSheet(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(15.0),
+                            ),
+                          ),
+                          context: context,
+                          builder: (context) => _addmore(),
+                        );
+                      },
                       icon: const Icon(Icons.add),
                       color: Colors.white,
                     ),
@@ -204,6 +215,123 @@ Widget _buildMessage(ChatMessage msg) {
         borderRadius: BorderRadius.circular(14),
       ),
       child: Text(msg.text),
+    ),
+  );
+}
+
+Widget _addmore() {
+  return Container(
+    height: 400,
+    width: 350,
+    decoration: BoxDecoration(),
+    child: Column(
+      children: [
+        SizedBox(height: 20),
+        Container(
+          padding: EdgeInsets.all(10),
+          height: 50,
+          width: 380,
+
+          decoration: BoxDecoration(
+            color: Colors.white24,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Row(
+            children: [
+              Icon(Icons.camera, color: Colors.blue),
+              SizedBox(width: 40),
+              Text(
+                'Camera',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+        Divider(thickness: 0.5, color: Colors.black, indent: 40, endIndent: 40),
+        Container(
+          padding: EdgeInsets.all(10),
+          height: 50,
+          width: 380,
+
+          decoration: BoxDecoration(
+            color: Colors.white24,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Row(
+            children: [
+              Icon(Icons.photo, color: Colors.blue),
+              SizedBox(width: 40),
+              Text(
+                'Photo & Video Library',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+        Divider(thickness: 0.5, color: Colors.black, indent: 40, endIndent: 40),
+        Container(
+          padding: EdgeInsets.all(10),
+          height: 50,
+          width: 380,
+
+          decoration: BoxDecoration(
+            color: Colors.white24,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Row(
+            children: [
+              Icon(Icons.edit_document, color: Colors.blue),
+              SizedBox(width: 40),
+              Text(
+                'Documents',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+        Divider(thickness: 0.5, color: Colors.black, indent: 40, endIndent: 40),
+        Container(
+          padding: EdgeInsets.all(10),
+          height: 50,
+          width: 380,
+
+          decoration: BoxDecoration(
+            color: Colors.white24,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Row(
+            children: [
+              Icon(Icons.location_pin, color: Colors.blue),
+              SizedBox(width: 40),
+              Text(
+                'Location',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+        Divider(thickness: 0.5, color: Colors.black, indent: 40, endIndent: 40),
+        Container(
+          padding: EdgeInsets.all(10),
+          height: 50,
+          width: 380,
+
+          decoration: BoxDecoration(
+            color: Colors.white24,
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Row(
+            children: [
+              Icon(Icons.contact_phone, color: Colors.blue),
+              SizedBox(width: 40),
+              Text(
+                'Contact',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),
+              ),
+            ],
+          ),
+        ),
+      ],
     ),
   );
 }

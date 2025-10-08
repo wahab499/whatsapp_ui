@@ -23,12 +23,12 @@ class Status extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  contactstatus(),
-                  contactstatus(),
-                  contactstatus(),
-                  contactstatus(),
-                  contactstatus(),
-                  contactstatus(),
+                  contactstatus(Image.asset('assets/images/Oval.png')),
+                  contactstatus(Image.asset('assets/images/Oval1.png')),
+                  contactstatus(Image.asset('assets/images/Oval2.png')),
+                  contactstatus(Image.asset('assets/images/Oval3.png')),
+                  contactstatus(Image.asset('assets/images/Oval4.png')),
+                  contactstatus(Image.asset('assets/images/Oval1.png')),
                 ],
               ),
             ),
@@ -89,7 +89,7 @@ class Status extends StatelessWidget {
   }
 }
 
-Widget contactstatus() {
+Widget contactstatus(Image image) {
   return Padding(
     padding: const EdgeInsets.symmetric(horizontal: 8),
     child: Stack(
@@ -117,10 +117,7 @@ Widget contactstatus() {
                 end: Alignment.bottomRight,
               ),
             ),
-            child: CircleAvatar(
-              radius: 37,
-              backgroundImage: AssetImage('assets/images/Oval.png'),
-            ),
+            child: CircleAvatar(radius: 37, backgroundImage: image.image),
           ),
         ),
       ],

@@ -22,25 +22,25 @@ class _ChatScreenState extends State<ChatScreen> {
       name: 'Bilal',
       message: 'Hello How are You Rana',
       data: '12/12/2025',
-      image: Image(image: AssetImage('assets/images/Oval.png')),
+      image: Image(image: AssetImage('assets/images/Oval1.png')),
     ),
     ChatData(
       name: 'Waheed',
       message: 'Hello How are You Rana',
       data: '12/12/2025',
-      image: Image(image: AssetImage('assets/images/Oval.png')),
+      image: Image(image: AssetImage('assets/images/Oval2.png')),
     ),
     ChatData(
       name: 'Abdul',
       message: 'Hello How are You Rana',
       data: '12/12/2025',
-      image: Image(image: AssetImage('assets/images/Oval.png')),
+      image: Image(image: AssetImage('assets/images/Oval3.png')),
     ),
     ChatData(
       name: 'Atif',
       message: 'Hello How are You Rana',
       data: '12/12/2025',
-      image: Image(image: AssetImage('assets/images/Oval.png')),
+      image: Image(image: AssetImage('assets/images/Oval4.png')),
     ),
     ChatData(
       name: 'Zain',
@@ -121,7 +121,7 @@ class Chatcard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: EdgeInsets.all(7),
       height: 90,
       width: 390,
 
@@ -143,16 +143,17 @@ class Chatcard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            CircleAvatar(radius: 30, backgroundImage: circleimage.image),
+            CircleAvatar(radius: 32, backgroundImage: circleimage.image),
+            SizedBox(width: 7),
             Column(
-              mainAxisAlignment: MainAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
                   name,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
-                SizedBox(height: 10),
+                SizedBox(height: 5),
                 Text(message, style: TextStyle(fontSize: 16)),
               ],
             ),

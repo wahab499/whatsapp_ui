@@ -48,6 +48,12 @@ class _ChatScreenState extends State<ChatScreen> {
       data: '12/12/2025',
       image: Image(image: AssetImage('assets/images/Oval.png')),
     ),
+    ChatData(
+      name: 'Hamza',
+      message: 'Hello How are You Rana',
+      data: '12/12/2025',
+      image: Image(image: AssetImage('assets/images/Oval.png')),
+    ),
   ];
 
   @override

@@ -1,4 +1,7 @@
+import 'dart:io';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import 'package:whatsapp_ui/contactinfo.dart';
 
@@ -219,6 +222,26 @@ Widget _buildMessage(ChatMessage msg) {
   );
 }
 
+File? selectedImage;
+File? selectedFile;
+Future<void> pickImage() async {
+  final ImagePicker picker = ImagePicker();
+  final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+  if (image != null) {
+    selectedImage = File(image.path);
+  }
+}
+
+// 📁 Pick File
+Future<void> pickFile() async {
+  FilePickerResult? result = await FilePicker.platform.pickFiles();
+  if (result != null) {
+    selectedFile = File(result.files.single.path!);
+  } else {
+    print('not find');
+  }
+}
+
 Widget _addmore() {
   return Container(
     height: 400,
@@ -238,7 +261,10 @@ Widget _addmore() {
           ),
           child: Row(
             children: [
-              Icon(Icons.camera, color: Colors.blue),
+              IconButton(
+                icon: Icon(Icons.camera, color: Colors.blue),
+                onPressed: pickImage,
+              ),
               SizedBox(width: 40),
               Text(
                 'Camera',
@@ -280,7 +306,10 @@ Widget _addmore() {
           ),
           child: Row(
             children: [
-              Icon(Icons.edit_document, color: Colors.blue),
+              IconButton(
+                icon: Icon(Icons.file_copy, color: Colors.blue),
+                onPressed: pickFile,
+              ),
               SizedBox(width: 40),
               Text(
                 'Documents',

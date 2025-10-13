@@ -64,8 +64,8 @@ class Setting extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(
-                      height: 50,
-                      width: 50,
+                      height: 45,
+                      width: 45,
                       child: Image.asset('assets/icons/Icon.png'),
                     ),
                     SizedBox(width: 20),
@@ -92,8 +92,8 @@ class Setting extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(
-                      height: 50,
-                      width: 50,
+                      height: 45,
+                      width: 45,
                       child: Image.asset('assets/icons/Icon1.png'),
                     ),
                     SizedBox(width: 15),
@@ -126,8 +126,8 @@ class Setting extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(
-                      height: 50,
-                      width: 50,
+                      height: 45,
+                      width: 45,
                       child: Image.asset('assets/icons/Icon2.png'),
                     ),
                     SizedBox(width: 15),
@@ -160,8 +160,8 @@ class Setting extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(
-                      height: 50,
-                      width: 50,
+                      height: 45,
+                      width: 45,
                       child: Image.asset('assets/icons/Icon3.png'),
                     ),
                     SizedBox(width: 20),
@@ -193,8 +193,8 @@ class Setting extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(
-                      height: 50,
-                      width: 50,
+                      height: 45,
+                      width: 45,
                       child: Image.asset('assets/icons/Icon4.png'),
                     ),
                     SizedBox(width: 20),
@@ -226,8 +226,8 @@ class Setting extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(
-                      height: 50,
-                      width: 50,
+                      height: 45,
+                      width: 45,
                       child: Image.asset('assets/icons/Icon5.png'),
                     ),
                     SizedBox(width: 20),
